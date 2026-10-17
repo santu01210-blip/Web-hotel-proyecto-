@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hotel Mirador | Descanso con vistas a la montaña</title>
+<meta name="description" content="Hotel Mirador: habitaciones cómodas, desayuno incluido y reserva directa sin comisiones.">
+<style>
+  :root{--verde:#1f3d36;--verde2:#2d5a4e;--arena:#f3ede2;--blanco:#fffdf8;--laton:#b08d57;--tinta:#1d2a27;--suave:#5f6b67;--linea:#ddd3c0}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--arena);color:var(--tinta);font:17px/1.65 -apple-system,"Segoe UI",Helvetica,Arial,sans-serif}
+  .wrap{width:100%;max-width:760px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.15;margin:0}
+  a:focus-visible,summary:focus-visible{outline:3px solid var(--laton);outline-offset:3px}
+  .boton{display:inline-block;background:var(--laton);color:var(--verde);padding:15px 28px;border-radius:4px;text-decoration:none;font-weight:700}
+  .boton:hover{background:#c6a266}
+
+  /* Menú */
+  .menu{position:sticky;top:0;z-index:10;background:rgba(31,61,54,.96);color:var(--arena)}
+  .menu .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
+  .menu strong{font-family:Georgia,serif;font-size:1.15rem}
+  .menu a{color:var(--arena);text-decoration:none;font-size:15px;border-bottom:1px solid var(--laton);padding-bottom:2px}
+
+  /* Portada */
+  .portada{background:linear-gradient(170deg,var(--verde) 0%,var(--verde2) 100%);color:var(--arena);padding:72px 0 0;position:relative;overflow:hidden}
+  .portada h1{font-size:clamp(2.6rem,10vw,4.4rem);max-width:9em}
+  .portada p{font-size:1.15rem;max-width:28em;margin:22px 0 32px;color:#d9e2de}
+  .portada svg{display:block;width:100%;height:auto;margin-top:48px}
+
+  /* Ventajas */
+  .ventajas{background:var(--blanco);border-bottom:1px solid var(--linea)}
+  .ventajas .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding-top:28px;padding-bottom:28px;text-align:center}
+  .ventajas b{display:block;font-family:Georgia,serif;font-size:1.05rem}
+  .ventajas span{font-size:.85rem;color:var(--suave)}
+
+  section{padding:64px 0}
+  h2{font-size:2rem;margin-bottom:10px}
+  .sub{color:var(--suave);margin:0 0 28px;max-width:34em}
+
+  /* Habitaciones */
+  .hab{background:var(--blanco);border:1px solid var(--linea);border-radius:8px;padding:24px;margin-bottom:16px;display:flex;justify-content:space-between;gap:16px;align-items:flex-start}
+  .hab h3{font-size:1.35rem;margin-bottom:6px}
+  .hab p{margin:0;color:var(--suave);font-size:.95rem}
+  .precio{font-family:Georgia,serif;font-size:1.6rem;color:var(--verde);white-space:nowrap;text-align:right}
+  .precio small{display:block;font:.75rem -apple-system,Arial,sans-serif;color:var(--suave)}
+  .hab.top{border-color:var(--laton)}
+  .etiqueta{display:inline-block;background:var(--laton);color:var(--verde);font-size:.75rem;font-weight:700;padding:2px 10px;border-radius:20px;margin-bottom:8px}
+
+  /* Servicios */
+  .servicios{background:var(--verde);color:var(--arena)}
+  .servicios .sub{color:#c8d3ce}
+  .lista{display:grid;grid-template-columns:1fr 1fr;gap:12px 24px;padding:0;margin:0;list-style:none}
+  .lista li{padding-left:24px;position:relative}
+  .lista li::before{content:"";position:absolute;left:0;top:.8em;width:12px;height:2px;background:var(--laton)}
+
+  /* Opiniones */
+  .opinion{border-left:3px solid var(--laton);padding:4px 0 4px 20px;margin:0 0 26px;max-width:36em}
+  .opinion p{margin:0 0 6px;font-family:Georgia,serif;font-size:1.15rem}
+  .opinion span{font-size:.9rem;color:var(--suave)}
+
+  /* FAQ */
+  details{border-bottom:1px solid var(--linea);padding:16px 0}
+  details:first-of-type{border-top:1px solid var(--linea)}
+  summary{cursor:pointer;font-weight:600}
+  details p{margin:10px 0 0;color:var(--suave)}
+
+  /* Reserva */
+  .reserva{background:var(--verde);color:var(--arena);text-align:center}
+  .reserva p{margin:0 auto 28px;max-width:28em;color:#d9e2de}
+  footer{padding:26px 0 90px;font-size:14px;color:var(--suave);text-align:center}
+
+  .wa{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));background:#1f8f55;color:#fff;padding:13px 20px;border-radius:30px;text-decoration:none;font-weight:700;font-size:15px;box-shadow:0 4px 14px rgba(0,0,0,.25);z-index:20}
+
+  @media (max-width:520px){
+    .ventajas .wrap{gap:8px}
+    .lista{grid-template-columns:1fr}
+    .hab{flex-direction:column}
+    .precio{text-align:left}
+  }
+</style>
+</head>
+<body>
+
+<nav class="menu"><div class="wrap"><strong>Hotel Mirador</strong><a href="#reserva">Reservar</a></div></nav>
+
+<header class="portada">
+  <div class="wrap">
+    <h1>Descansa con vistas a la montaña</h1>
+    <p>Habitaciones cómodas, desayuno incluido y atención cercana. Reserva directa, sin comisiones.</p>
+    <a class="boton" href="#reserva">Consultar disponibilidad</a>
+  </div>
+  <svg viewBox="0 0 800 140" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 140V90l120-60 100 55 130-75 150 85 110-50 190 95v40z" fill="#3b6c5d"/>
+    <path d="M0 140v-30l140-45 120 50 140-60 160 70 120-40 120 35v20z" fill="#f3ede2"/>
+  </svg>
+</header>
+
+<div class="ventajas"><div class="wrap">
+  <div><b>Desayuno</b><span>incluido</span></div>
+  <div><b>Wifi gratis</b><span>en todo el hotel</span></div>
+  <div><b>Cancelación</b><span>gratuita 48 h</span></div>
+</div></div>
+
+<main>
+  <section id="habitaciones"><div class="wrap">
+    <h2>Habitaciones</h2>
+    <p class="sub">Elige la que mejor se adapte a tu viaje. Precio por noche, desayuno incluido.</p>
+    <div class="hab"><div><h3>Individual</h3><p>1 persona · cama de 90 cm · escritorio</p></div><div class="precio">65€<small>por noche</small></div></div>
+    <div class="hab top"><div><span class="etiqueta">La más reservada</span><h3>Doble con balcón</h3><p>2 personas · cama de matrimonio · balcón</p></div><div class="precio">95€<small>por noche</small></div></div>
+    <div class="hab"><div><h3>Suite</h3><p>2–3 personas · salón · vistas panorámicas</p></div><div class="precio">140€<small>por noche</small></div></div>
+  </div></section>
+
+  <section class="servicios" id="servicios"><div class="wrap">
+    <h2>Todo lo que necesitas</h2>
+    <p class="sub">Sin sorpresas en la factura: esto está incluido en tu estancia.</p>
+    <ul class="lista">
+      <li>Desayuno buffet</li><li>Wifi de alta velocidad</li>
+      <li>Aparcamiento gratuito</li><li>Recepción 8:00–23:00</li>
+      <li>Calefacción y aire acondicionado</li><li>Consigna de equipaje</li>
+    </ul>
+  </div></section>
+
+  <section><div class="wrap">
+    <h2>Lo que dicen nuestros huéspedes</h2>
+    <p class="sub">Opiniones de ejemplo.</p>
+    <div class="opinion"><p>«Habitación impecable y un desayuno de diez. Volveremos.»</p><span>Laura · escapada en pareja</span></div>
+    <div class="opinion"><p>«Trato cercano y unas vistas increíbles desde el balcón.»</p><span>Carlos · viaje en familia</span></div>
+  </div></section>
+
+  <section style="background:var(--blanco)"><div class="wrap">
+    <h2>Cómo llegar</h2>
+    <p class="sub">Calle de Ejemplo 12, centro del pueblo. A 5 minutos andando de la estación y a 10 minutos en coche de las pistas.</p>
+    <details><summary>¿A qué hora es el check-in y el check-out?</summary><p>Entrada desde las 15:00 y salida hasta las 11:00. Si llegas antes, guardamos tu equipaje.</p></details>
+    <details><summary>¿Se admiten mascotas?</summary><p>Sí, en habitaciones dobles. Consúltanos antes de reservar.</p></details>
+    <details><summary>¿Puedo cancelar mi reserva?</summary><p>Cancelación gratuita hasta 48 horas antes de la llegada.</p></details>
+  </div></section>
+
+  <section class="reserva" id="reserva"><div class="wrap">
+    <h2>Reserva tu estancia</h2>
+    <p>Escríbenos con tus fechas y te respondemos el mismo día. Reservando directo tienes el mejor precio.</p>
+    <a class="boton" href="https://wa.me/376626622" target="_blank" rel="noopener">Reservar por WhatsApp</a>
+  </div></section>
+</main>
+
+<footer class="wrap">Proyecto de muestra. Hotel, datos y opiniones ficticios.</footer>
+<a class="wa" href="https://wa.me/376626622" target="_blank" rel="noopener">WhatsApp</a>
+
+</body>
+</html>
